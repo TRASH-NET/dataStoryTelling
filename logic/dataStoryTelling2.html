@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Emmanuel Silva Diaz - T00055599">
+<meta name="author" content="Maryuris Serpa - T00064505">
+<meta name="author" content="Lida del Valle - T0060224">
+
+<title>Informe N°2 Data Story Telling</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="dataStoryTelling2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="dataStoryTelling2_files/libs/quarto-html/quarto.js"></script>
+<script src="dataStoryTelling2_files/libs/quarto-html/popper.min.js"></script>
+<script src="dataStoryTelling2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="dataStoryTelling2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="dataStoryTelling2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="dataStoryTelling2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="dataStoryTelling2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="dataStoryTelling2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="dataStoryTelling2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Informe N°2 Data Story Telling</h1>
+<p class="subtitle lead">Estadistica Inferencial - NRC: 1451</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autores/as</div>
+  <div class="quarto-title-meta-heading">Afiliación</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Emmanuel Silva Diaz - T00055599 </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Universidad Tecnologica de Bolivar
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Maryuris Serpa - T00064505 </p>
+  </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Lida del Valle - T0060224 </p>
+  </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">1 de octubre de 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>1.) Importar Dataset</strong></p>
+<p><strong>Dataset extraido de https://www.kaggle.com/datasets/iamsouravbanerjee/heart-attack-prediction-dataset</strong></p>
+<p>Este dataset consta de 8763 registros de pacientes de todo el mundo donde se proporciona una amplia variedad de características relevantes para la salud del corazón y las elecciones de estilo de vida, que abarcan detalles específicos del paciente como la edad, el género, los niveles de colesterol, la presión arterial, la frecuencia cardíaca y los indicadores como la diabetes, antecedentes familiares, hábitos de tabaquismo, obesidad y consumo de alcohol. Culmina en una característica de clasificación binaria crucial que denota la presencia o ausencia de un riesgo de ataque cardíaco, proporcionando un recurso integral para el análisis predictivo e investigación en salud cardiovascular.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/data.csv'</span>, sep<span class="op">=</span><span class="st">","</span>)<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Patient ID</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Cholesterol</th>
+<th data-quarto-table-cell-role="th">Blood Pressure</th>
+<th data-quarto-table-cell-role="th">Heart Rate</th>
+<th data-quarto-table-cell-role="th">Diabetes</th>
+<th data-quarto-table-cell-role="th">Family History</th>
+<th data-quarto-table-cell-role="th">Smoking</th>
+<th data-quarto-table-cell-role="th">Obesity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Sedentary Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Income</th>
+<th data-quarto-table-cell-role="th">BMI</th>
+<th data-quarto-table-cell-role="th">Triglycerides</th>
+<th data-quarto-table-cell-role="th">Physical Activity Days Per Week</th>
+<th data-quarto-table-cell-role="th">Sleep Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Continent</th>
+<th data-quarto-table-cell-role="th">Hemisphere</th>
+<th data-quarto-table-cell-role="th">Heart Attack Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>BMW7812</td>
+<td>67</td>
+<td>Male</td>
+<td>208</td>
+<td>158/88</td>
+<td>72</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>6.615001</td>
+<td>261404</td>
+<td>31.251233</td>
+<td>286</td>
+<td>0</td>
+<td>6</td>
+<td>Argentina</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>CZE1114</td>
+<td>21</td>
+<td>Male</td>
+<td>389</td>
+<td>165/93</td>
+<td>98</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>4.963459</td>
+<td>285768</td>
+<td>27.194973</td>
+<td>235</td>
+<td>1</td>
+<td>7</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>BNI9906</td>
+<td>21</td>
+<td>Female</td>
+<td>324</td>
+<td>174/99</td>
+<td>72</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>9.463426</td>
+<td>235282</td>
+<td>28.176571</td>
+<td>587</td>
+<td>4</td>
+<td>4</td>
+<td>France</td>
+<td>Europe</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>JLN3497</td>
+<td>84</td>
+<td>Male</td>
+<td>383</td>
+<td>163/100</td>
+<td>73</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>7.648981</td>
+<td>125640</td>
+<td>36.464704</td>
+<td>378</td>
+<td>3</td>
+<td>4</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>GFO8847</td>
+<td>66</td>
+<td>Male</td>
+<td>318</td>
+<td>91/88</td>
+<td>93</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>1.514821</td>
+<td>160555</td>
+<td>21.809144</td>
+<td>231</td>
+<td>1</td>
+<td>5</td>
+<td>Thailand</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8758</td>
+<td>MSV9918</td>
+<td>60</td>
+<td>Male</td>
+<td>121</td>
+<td>94/76</td>
+<td>61</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>10.806373</td>
+<td>235420</td>
+<td>19.655895</td>
+<td>67</td>
+<td>7</td>
+<td>7</td>
+<td>Thailand</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8759</td>
+<td>QSV6764</td>
+<td>28</td>
+<td>Female</td>
+<td>120</td>
+<td>157/102</td>
+<td>73</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>3.833038</td>
+<td>217881</td>
+<td>23.993866</td>
+<td>617</td>
+<td>4</td>
+<td>9</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8760</td>
+<td>XKA5925</td>
+<td>47</td>
+<td>Male</td>
+<td>250</td>
+<td>161/75</td>
+<td>105</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>2.375214</td>
+<td>36998</td>
+<td>35.406146</td>
+<td>527</td>
+<td>4</td>
+<td>4</td>
+<td>Brazil</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8761</td>
+<td>EPE6801</td>
+<td>36</td>
+<td>Male</td>
+<td>178</td>
+<td>119/67</td>
+<td>60</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0.029104</td>
+<td>209943</td>
+<td>27.294020</td>
+<td>114</td>
+<td>2</td>
+<td>8</td>
+<td>Brazil</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8762</td>
+<td>ZWN9666</td>
+<td>25</td>
+<td>Female</td>
+<td>356</td>
+<td>138/67</td>
+<td>75</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>9.005234</td>
+<td>247338</td>
+<td>32.914151</td>
+<td>180</td>
+<td>7</td>
+<td>4</td>
+<td>United Kingdom</td>
+<td>Europe</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>8763 rows × 26 columns</p>
+</div>
+</div>
+</div>
+<p><strong>2.) Descripcion del dataset</strong></p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st"> --------------------------'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st">'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n\n</span><span class="st"> --------------------------'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+ --------------------------
+
+
+
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 8763 entries, 0 to 8762
+Data columns (total 26 columns):
+ #   Column                           Non-Null Count  Dtype  
+---  ------                           --------------  -----  
+ 0   Patient ID                       8763 non-null   object 
+ 1   Age                              8763 non-null   int64  
+ 2   Sex                              8763 non-null   object 
+ 3   Cholesterol                      8763 non-null   int64  
+ 4   Blood Pressure                   8763 non-null   object 
+ 5   Heart Rate                       8763 non-null   int64  
+ 6   Diabetes                         8763 non-null   int64  
+ 7   Family History                   8763 non-null   int64  
+ 8   Smoking                          8763 non-null   int64  
+ 9   Obesity                          8763 non-null   int64  
+ 10  Alcohol Consumption              8763 non-null   int64  
+ 11  Exercise Hours Per Week          8763 non-null   float64
+ 12  Diet                             8763 non-null   object 
+ 13  Previous Heart Problems          8763 non-null   int64  
+ 14  Medication Use                   8763 non-null   int64  
+ 15  Stress Level                     8763 non-null   int64  
+ 16  Sedentary Hours Per Day          8763 non-null   float64
+ 17  Income                           8763 non-null   int64  
+ 18  BMI                              8763 non-null   float64
+ 19  Triglycerides                    8763 non-null   int64  
+ 20  Physical Activity Days Per Week  8763 non-null   int64  
+ 21  Sleep Hours Per Day              8763 non-null   int64  
+ 22  Country                          8763 non-null   object 
+ 23  Continent                        8763 non-null   object 
+ 24  Hemisphere                       8763 non-null   object 
+ 25  Heart Attack Risk                8763 non-null   int64  
+dtypes: float64(3), int64(16), object(7)
+memory usage: 1.7+ MB
+None
+
+
+ --------------------------</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ? Tipos de variables y pruebas de normalidd</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>variables <span class="op">=</span> pd.DataFrame({<span class="st">'Variable'</span>: [<span class="st">'Patient ID'</span>, <span class="st">'Age'</span>, <span class="st">'Sex'</span>, <span class="st">'Cholesterol'</span>, <span class="st">'Blood Pressure'</span>, <span class="st">'Heart Rate'</span>, <span class="st">'Diabetes'</span>, <span class="st">'Family History'</span>, <span class="st">'Smoking'</span>, <span class="st">'Obesity'</span>, <span class="st">'Alcohol Consumption'</span>, <span class="st">'Exercise Hours Per Week'</span>, <span class="st">'Diet'</span>, <span class="st">'Previous Heart Problems'</span>, <span class="st">'Medication Use'</span>, <span class="st">'Stress Level'</span>, <span class="st">'Sedentary Hours Per Day'</span>, <span class="st">'Income'</span>, <span class="st">'BMI'</span>, <span class="st">'Triglycerides'</span>, <span class="st">'Physical Activity Days Per Week'</span>, <span class="st">'Sleep Hours Per Day'</span>, <span class="st">'Country'</span>, <span class="st">'Continent'</span>, <span class="st">'Hemisphere'</span>, <span class="st">'Heart Attack Risk'</span>],</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>              <span class="st">'CUALITATIVA'</span>: [<span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>              <span class="st">'CUANTITATIVA'</span>: [<span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'1'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>, <span class="st">'0'</span>],</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>              <span class="st">'TIPO DE DATO'</span>: [<span class="st">'String'</span>, <span class="st">'Int'</span>, <span class="st">'String'</span>, <span class="st">'Int'</span>, <span class="st">'String'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Float'</span>, <span class="st">'String'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Float'</span>, <span class="st">'Int'</span>, <span class="st">'Float'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'Int'</span>, <span class="st">'String'</span>, <span class="st">'String'</span>, <span class="st">'String'</span>, <span class="st">'Int'</span>]})</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(variables.to_string())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Variable CUALITATIVA CUANTITATIVA TIPO DE DATO
+0                        Patient ID           1            0       String
+1                               Age           0            1          Int
+2                               Sex           1            0       String
+3                       Cholesterol           0            1          Int
+4                    Blood Pressure           0            1       String
+5                        Heart Rate           0            1          Int
+6                          Diabetes           1            0          Int
+7                    Family History           1            0          Int
+8                           Smoking           1            0          Int
+9                           Obesity           1            0          Int
+10              Alcohol Consumption           1            0          Int
+11          Exercise Hours Per Week           0            1        Float
+12                             Diet           1            0       String
+13          Previous Heart Problems           1            0          Int
+14                   Medication Use           1            0          Int
+15                     Stress Level           0            1          Int
+16          Sedentary Hours Per Day           0            1        Float
+17                           Income           0            1          Int
+18                              BMI           0            1        Float
+19                    Triglycerides           0            1          Int
+20  Physical Activity Days Per Week           0            1          Int
+21              Sleep Hours Per Day           0            1          Int
+22                          Country           1            0       String
+23                        Continent           1            0       String
+24                       Hemisphere           1            0       String
+25                Heart Attack Risk           1            0          Int</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Cholesterol</th>
+<th data-quarto-table-cell-role="th">Heart Rate</th>
+<th data-quarto-table-cell-role="th">Diabetes</th>
+<th data-quarto-table-cell-role="th">Family History</th>
+<th data-quarto-table-cell-role="th">Smoking</th>
+<th data-quarto-table-cell-role="th">Obesity</th>
+<th data-quarto-table-cell-role="th">Alcohol Consumption</th>
+<th data-quarto-table-cell-role="th">Exercise Hours Per Week</th>
+<th data-quarto-table-cell-role="th">Previous Heart Problems</th>
+<th data-quarto-table-cell-role="th">Medication Use</th>
+<th data-quarto-table-cell-role="th">Stress Level</th>
+<th data-quarto-table-cell-role="th">Sedentary Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Income</th>
+<th data-quarto-table-cell-role="th">BMI</th>
+<th data-quarto-table-cell-role="th">Triglycerides</th>
+<th data-quarto-table-cell-role="th">Physical Activity Days Per Week</th>
+<th data-quarto-table-cell-role="th">Sleep Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Heart Attack Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+<td>8763.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>53.707977</td>
+<td>259.877211</td>
+<td>75.021682</td>
+<td>0.652288</td>
+<td>0.492982</td>
+<td>0.896839</td>
+<td>0.501426</td>
+<td>0.598083</td>
+<td>10.014284</td>
+<td>0.495835</td>
+<td>0.498345</td>
+<td>5.469702</td>
+<td>5.993690</td>
+<td>158263.181901</td>
+<td>28.891446</td>
+<td>417.677051</td>
+<td>3.489672</td>
+<td>7.023508</td>
+<td>0.358211</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>21.249509</td>
+<td>80.863276</td>
+<td>20.550948</td>
+<td>0.476271</td>
+<td>0.499979</td>
+<td>0.304186</td>
+<td>0.500026</td>
+<td>0.490313</td>
+<td>5.783745</td>
+<td>0.500011</td>
+<td>0.500026</td>
+<td>2.859622</td>
+<td>3.466359</td>
+<td>80575.190806</td>
+<td>6.319181</td>
+<td>223.748137</td>
+<td>2.282687</td>
+<td>1.988473</td>
+<td>0.479502</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>18.000000</td>
+<td>120.000000</td>
+<td>40.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.002442</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>0.001263</td>
+<td>20062.000000</td>
+<td>18.002337</td>
+<td>30.000000</td>
+<td>0.000000</td>
+<td>4.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>35.000000</td>
+<td>192.000000</td>
+<td>57.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>4.981579</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>3.000000</td>
+<td>2.998794</td>
+<td>88310.000000</td>
+<td>23.422985</td>
+<td>225.500000</td>
+<td>2.000000</td>
+<td>5.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>54.000000</td>
+<td>259.000000</td>
+<td>75.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>10.069559</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>5.000000</td>
+<td>5.933622</td>
+<td>157866.000000</td>
+<td>28.768999</td>
+<td>417.000000</td>
+<td>3.000000</td>
+<td>7.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>72.000000</td>
+<td>330.000000</td>
+<td>93.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>15.050018</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>8.000000</td>
+<td>9.019124</td>
+<td>227749.000000</td>
+<td>34.324594</td>
+<td>612.000000</td>
+<td>5.000000</td>
+<td>9.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>90.000000</td>
+<td>400.000000</td>
+<td>110.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>19.998709</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>10.000000</td>
+<td>11.999313</td>
+<td>299954.000000</td>
+<td>39.997211</td>
+<td>800.000000</td>
+<td>7.000000</td>
+<td>10.000000</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><strong>3.) Limpieza del dataset</strong></p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#* Datos faltantes </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#? Convertir valores no numéricos en NaN para todas las columnas</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>dfClear<span class="op">=</span> df.replace(<span class="st">''</span>, value<span class="op">=</span>np.nan)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#? Contar valores nulos por columna y convertir el resultado en un diccionario</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>datosFaltantes<span class="op">=</span> dfClear.isnull().<span class="bu">sum</span>().to_dict()</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#? Se crea un nuevo dataset en excel luego de hacer la limpieza</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># dfClear.to_excel('DataClear.xlsx', index=False)</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(datosFaltantes)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Patient ID': 0, 'Age': 0, 'Sex': 0, 'Cholesterol': 0, 'Blood Pressure': 0, 'Heart Rate': 0, 'Diabetes': 0, 'Family History': 0, 'Smoking': 0, 'Obesity': 0, 'Alcohol Consumption': 0, 'Exercise Hours Per Week': 0, 'Diet': 0, 'Previous Heart Problems': 0, 'Medication Use': 0, 'Stress Level': 0, 'Sedentary Hours Per Day': 0, 'Income': 0, 'BMI': 0, 'Triglycerides': 0, 'Physical Activity Days Per Week': 0, 'Sleep Hours Per Day': 0, 'Country': 0, 'Continent': 0, 'Hemisphere': 0, 'Heart Attack Risk': 0}</code></pre>
+</div>
+</div>
+<p><strong>4.) Calculo del tamaño de muestra</strong></p>
+<p>Determinar un tamaño de muestra 𝑛 representativo para el estudio. observaciones si cuentan con una variable que se distribuye de forma normal usar tamaño de muestra para la media teniendo en cuenta esa variable, en otro case usar tamaño de muestra para proporciones.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#* PERSONAS QUE TIENEN RIESGO DE ATAQUE AL CORAZON</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>HEART_ATTACK_RISK <span class="op">=</span> dfClear[dfClear[<span class="st">'Heart Attack Risk'</span>] <span class="op">==</span> <span class="dv">1</span>] <span class="co">#? Dataset filtrado para aquellos que tienen riesgo de ataque al corazon</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>HEART_ATTACK_RISK</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Patient ID</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Cholesterol</th>
+<th data-quarto-table-cell-role="th">Blood Pressure</th>
+<th data-quarto-table-cell-role="th">Heart Rate</th>
+<th data-quarto-table-cell-role="th">Diabetes</th>
+<th data-quarto-table-cell-role="th">Family History</th>
+<th data-quarto-table-cell-role="th">Smoking</th>
+<th data-quarto-table-cell-role="th">Obesity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Sedentary Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Income</th>
+<th data-quarto-table-cell-role="th">BMI</th>
+<th data-quarto-table-cell-role="th">Triglycerides</th>
+<th data-quarto-table-cell-role="th">Physical Activity Days Per Week</th>
+<th data-quarto-table-cell-role="th">Sleep Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Continent</th>
+<th data-quarto-table-cell-role="th">Hemisphere</th>
+<th data-quarto-table-cell-role="th">Heart Attack Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>ZOO7941</td>
+<td>54</td>
+<td>Female</td>
+<td>297</td>
+<td>172/86</td>
+<td>48</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>7.798752</td>
+<td>241339</td>
+<td>20.146840</td>
+<td>795</td>
+<td>5</td>
+<td>10</td>
+<td>Germany</td>
+<td>Europe</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>WYV0966</td>
+<td>90</td>
+<td>Male</td>
+<td>358</td>
+<td>102/73</td>
+<td>84</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0.627356</td>
+<td>190450</td>
+<td>28.885811</td>
+<td>284</td>
+<td>4</td>
+<td>10</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>XXM0972</td>
+<td>84</td>
+<td>Male</td>
+<td>220</td>
+<td>131/68</td>
+<td>107</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>10.543780</td>
+<td>122093</td>
+<td>22.221862</td>
+<td>370</td>
+<td>6</td>
+<td>7</td>
+<td>Japan</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12</td>
+<td>FPS0415</td>
+<td>77</td>
+<td>Male</td>
+<td>228</td>
+<td>101/72</td>
+<td>68</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>10.917524</td>
+<td>29886</td>
+<td>35.102236</td>
+<td>590</td>
+<td>7</td>
+<td>6</td>
+<td>Vietnam</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>YYU9565</td>
+<td>60</td>
+<td>Male</td>
+<td>259</td>
+<td>169/72</td>
+<td>85</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>8.727417</td>
+<td>292173</td>
+<td>25.564897</td>
+<td>506</td>
+<td>1</td>
+<td>4</td>
+<td>China</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8753</td>
+<td>NVC8704</td>
+<td>82</td>
+<td>Male</td>
+<td>311</td>
+<td>126/108</td>
+<td>87</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>8.402977</td>
+<td>141521</td>
+<td>27.694240</td>
+<td>515</td>
+<td>1</td>
+<td>5</td>
+<td>Australia</td>
+<td>Australia</td>
+<td>Southern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8754</td>
+<td>LZM3606</td>
+<td>80</td>
+<td>Female</td>
+<td>383</td>
+<td>153/96</td>
+<td>91</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>8.234883</td>
+<td>101341</td>
+<td>20.490450</td>
+<td>174</td>
+<td>3</td>
+<td>4</td>
+<td>Argentina</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8756</td>
+<td>BUE0416</td>
+<td>22</td>
+<td>Male</td>
+<td>347</td>
+<td>115/87</td>
+<td>108</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>6.786750</td>
+<td>230235</td>
+<td>20.295054</td>
+<td>641</td>
+<td>2</td>
+<td>9</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8760</td>
+<td>XKA5925</td>
+<td>47</td>
+<td>Male</td>
+<td>250</td>
+<td>161/75</td>
+<td>105</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>2.375214</td>
+<td>36998</td>
+<td>35.406146</td>
+<td>527</td>
+<td>4</td>
+<td>4</td>
+<td>Brazil</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8762</td>
+<td>ZWN9666</td>
+<td>25</td>
+<td>Female</td>
+<td>356</td>
+<td>138/67</td>
+<td>75</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>9.005234</td>
+<td>247338</td>
+<td>32.914151</td>
+<td>180</td>
+<td>7</td>
+<td>4</td>
+<td>United Kingdom</td>
+<td>Europe</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>3139 rows × 26 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#* PERSONAS QUE NO TIENEN RIESGO DE ATAQUE AL CORAZON</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>NO_HEART_ATTACK_RISK <span class="op">=</span> dfClear[dfClear[<span class="st">'Heart Attack Risk'</span>] <span class="op">==</span> <span class="dv">0</span>] <span class="co">#? Dataset filtrado para aquellos que no tienen riesgo de ataque al corazon</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>NO_HEART_ATTACK_RISK</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Patient ID</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Cholesterol</th>
+<th data-quarto-table-cell-role="th">Blood Pressure</th>
+<th data-quarto-table-cell-role="th">Heart Rate</th>
+<th data-quarto-table-cell-role="th">Diabetes</th>
+<th data-quarto-table-cell-role="th">Family History</th>
+<th data-quarto-table-cell-role="th">Smoking</th>
+<th data-quarto-table-cell-role="th">Obesity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Sedentary Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Income</th>
+<th data-quarto-table-cell-role="th">BMI</th>
+<th data-quarto-table-cell-role="th">Triglycerides</th>
+<th data-quarto-table-cell-role="th">Physical Activity Days Per Week</th>
+<th data-quarto-table-cell-role="th">Sleep Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Continent</th>
+<th data-quarto-table-cell-role="th">Hemisphere</th>
+<th data-quarto-table-cell-role="th">Heart Attack Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>BMW7812</td>
+<td>67</td>
+<td>Male</td>
+<td>208</td>
+<td>158/88</td>
+<td>72</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>6.615001</td>
+<td>261404</td>
+<td>31.251233</td>
+<td>286</td>
+<td>0</td>
+<td>6</td>
+<td>Argentina</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>CZE1114</td>
+<td>21</td>
+<td>Male</td>
+<td>389</td>
+<td>165/93</td>
+<td>98</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>4.963459</td>
+<td>285768</td>
+<td>27.194973</td>
+<td>235</td>
+<td>1</td>
+<td>7</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>BNI9906</td>
+<td>21</td>
+<td>Female</td>
+<td>324</td>
+<td>174/99</td>
+<td>72</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>9.463426</td>
+<td>235282</td>
+<td>28.176571</td>
+<td>587</td>
+<td>4</td>
+<td>4</td>
+<td>France</td>
+<td>Europe</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>JLN3497</td>
+<td>84</td>
+<td>Male</td>
+<td>383</td>
+<td>163/100</td>
+<td>73</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>7.648981</td>
+<td>125640</td>
+<td>36.464704</td>
+<td>378</td>
+<td>3</td>
+<td>4</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>GFO8847</td>
+<td>66</td>
+<td>Male</td>
+<td>318</td>
+<td>91/88</td>
+<td>93</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>1.514821</td>
+<td>160555</td>
+<td>21.809144</td>
+<td>231</td>
+<td>1</td>
+<td>5</td>
+<td>Thailand</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8755</td>
+<td>KQR8949</td>
+<td>25</td>
+<td>Male</td>
+<td>307</td>
+<td>137/94</td>
+<td>78</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>10.516775</td>
+<td>79211</td>
+<td>33.469360</td>
+<td>296</td>
+<td>7</td>
+<td>5</td>
+<td>Spain</td>
+<td>Europe</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8757</td>
+<td>YDX2478</td>
+<td>59</td>
+<td>Female</td>
+<td>378</td>
+<td>93/78</td>
+<td>99</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>7.495231</td>
+<td>70415</td>
+<td>39.976061</td>
+<td>158</td>
+<td>1</td>
+<td>9</td>
+<td>China</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8758</td>
+<td>MSV9918</td>
+<td>60</td>
+<td>Male</td>
+<td>121</td>
+<td>94/76</td>
+<td>61</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>10.806373</td>
+<td>235420</td>
+<td>19.655895</td>
+<td>67</td>
+<td>7</td>
+<td>7</td>
+<td>Thailand</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8759</td>
+<td>QSV6764</td>
+<td>28</td>
+<td>Female</td>
+<td>120</td>
+<td>157/102</td>
+<td>73</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>...</td>
+<td>3.833038</td>
+<td>217881</td>
+<td>23.993866</td>
+<td>617</td>
+<td>4</td>
+<td>9</td>
+<td>Canada</td>
+<td>North America</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8761</td>
+<td>EPE6801</td>
+<td>36</td>
+<td>Male</td>
+<td>178</td>
+<td>119/67</td>
+<td>60</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>0.029104</td>
+<td>209943</td>
+<td>27.294020</td>
+<td>114</td>
+<td>2</td>
+<td>8</td>
+<td>Brazil</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5624 rows × 26 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#? Proporcion de la cantidad de personas que tienen riesgo de ataque al corazon.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>P_HEART_ATTACK_RISK<span class="op">=</span> HEART_ATTACK_RISK[<span class="st">'Patient ID'</span>].count()<span class="op">/</span>dfClear[<span class="st">'Patient ID'</span>].count()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"¡ El "</span>,(P_HEART_ATTACK_RISK<span class="op">*</span><span class="dv">100</span>).<span class="fu">__round__</span>(<span class="dv">3</span>),<span class="st">'</span><span class="sc">% d</span><span class="st">e las personas tienen riesgo de ataque al corazon !'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"¡ El "</span>,((<span class="dv">1</span><span class="op">-</span>P_HEART_ATTACK_RISK)<span class="op">*</span><span class="dv">100</span>).<span class="fu">__round__</span>(<span class="dv">3</span>),<span class="st">'</span><span class="sc">% d</span><span class="st">e las personas no tienen riesgo de ataque al corazon !'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>¡ El  35.821 % de las personas tienen riesgo de ataque al corazon !
+¡ El  64.179 % de las personas no tienen riesgo de ataque al corazon !</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#? Calculo de tamaño de muestra para proporciones -&gt; n = (z^2 * p * (1-p)) / (E^2)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#* P_HEART_ATTACK_RISK_SMOKING -&gt; Proporcion</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>ALPHA_MEDIOS_95 <span class="op">=</span> <span class="fl">0.05</span> <span class="co">#* -&gt; Nivel de significancia</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>ERROR <span class="op">=</span> <span class="fl">0.02</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>Z_ALPHA_MEDIOS_95 <span class="op">=</span> scipy.stats.norm.isf(ALPHA_MEDIOS_95)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>Z_ALPHA_MEDIOS_95</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> (((Z_ALPHA_MEDIOS_95<span class="op">**</span><span class="dv">2</span>)<span class="op">*</span>(P_HEART_ATTACK_RISK)<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>P_HEART_ATTACK_RISK))<span class="op">/</span>(ERROR<span class="op">**</span><span class="dv">2</span>)).<span class="bu">round</span>().<span class="fu">__int__</span>()</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"El tamaño de muestra es:"</span>, n )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>El tamaño de muestra es: 1555</code></pre>
+</div>
+</div>
+<p><strong>5.) Obtenemos una muestra aleatoria</strong></p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>seed <span class="op">=</span> <span class="dv">55599</span> <span class="co">#? Semilla </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> n</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>dfMuestra <span class="op">=</span> dfClear.sample(n<span class="op">=</span>sample, random_state<span class="op">=</span>seed)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> -&gt; dfMuestra.to_excel('muestra1500.xlsx', index=False) #* -&gt; Se crea un archivo de excel con la muestra de 1555</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>dfMuestra</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Patient ID</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Cholesterol</th>
+<th data-quarto-table-cell-role="th">Blood Pressure</th>
+<th data-quarto-table-cell-role="th">Heart Rate</th>
+<th data-quarto-table-cell-role="th">Diabetes</th>
+<th data-quarto-table-cell-role="th">Family History</th>
+<th data-quarto-table-cell-role="th">Smoking</th>
+<th data-quarto-table-cell-role="th">Obesity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">Sedentary Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Income</th>
+<th data-quarto-table-cell-role="th">BMI</th>
+<th data-quarto-table-cell-role="th">Triglycerides</th>
+<th data-quarto-table-cell-role="th">Physical Activity Days Per Week</th>
+<th data-quarto-table-cell-role="th">Sleep Hours Per Day</th>
+<th data-quarto-table-cell-role="th">Country</th>
+<th data-quarto-table-cell-role="th">Continent</th>
+<th data-quarto-table-cell-role="th">Hemisphere</th>
+<th data-quarto-table-cell-role="th">Heart Attack Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3291</td>
+<td>MCL4340</td>
+<td>36</td>
+<td>Male</td>
+<td>129</td>
+<td>106/108</td>
+<td>40</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>10.659023</td>
+<td>27838</td>
+<td>29.461927</td>
+<td>363</td>
+<td>3</td>
+<td>4</td>
+<td>Australia</td>
+<td>Australia</td>
+<td>Southern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">717</td>
+<td>JCP3680</td>
+<td>76</td>
+<td>Female</td>
+<td>217</td>
+<td>174/90</td>
+<td>45</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>7.614980</td>
+<td>59958</td>
+<td>36.794249</td>
+<td>150</td>
+<td>2</td>
+<td>10</td>
+<td>Argentina</td>
+<td>South America</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7737</td>
+<td>RTY2618</td>
+<td>43</td>
+<td>Male</td>
+<td>146</td>
+<td>91/108</td>
+<td>92</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>2.821285</td>
+<td>129971</td>
+<td>20.034447</td>
+<td>435</td>
+<td>2</td>
+<td>4</td>
+<td>South Africa</td>
+<td>Africa</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4143</td>
+<td>SGX3284</td>
+<td>89</td>
+<td>Male</td>
+<td>256</td>
+<td>126/105</td>
+<td>49</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>11.427364</td>
+<td>112868</td>
+<td>39.788714</td>
+<td>707</td>
+<td>3</td>
+<td>7</td>
+<td>India</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5510</td>
+<td>AHH1440</td>
+<td>52</td>
+<td>Male</td>
+<td>237</td>
+<td>103/68</td>
+<td>105</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>1.797397</td>
+<td>234203</td>
+<td>28.534404</td>
+<td>731</td>
+<td>3</td>
+<td>6</td>
+<td>Thailand</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3303</td>
+<td>VGZ0491</td>
+<td>72</td>
+<td>Male</td>
+<td>191</td>
+<td>121/85</td>
+<td>42</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>6.587066</td>
+<td>99379</td>
+<td>30.045734</td>
+<td>609</td>
+<td>7</td>
+<td>9</td>
+<td>Vietnam</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8696</td>
+<td>FKZ0614</td>
+<td>72</td>
+<td>Female</td>
+<td>372</td>
+<td>145/81</td>
+<td>52</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>6.073838</td>
+<td>122793</td>
+<td>33.734101</td>
+<td>308</td>
+<td>7</td>
+<td>7</td>
+<td>United Kingdom</td>
+<td>Europe</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3808</td>
+<td>NOP5048</td>
+<td>86</td>
+<td>Male</td>
+<td>195</td>
+<td>113/64</td>
+<td>47</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>8.933974</td>
+<td>27003</td>
+<td>38.832463</td>
+<td>507</td>
+<td>2</td>
+<td>6</td>
+<td>South Korea</td>
+<td>Asia</td>
+<td>Northern Hemisphere</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5901</td>
+<td>GJF3330</td>
+<td>23</td>
+<td>Male</td>
+<td>127</td>
+<td>106/95</td>
+<td>78</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>...</td>
+<td>5.805425</td>
+<td>82740</td>
+<td>20.161613</td>
+<td>796</td>
+<td>0</td>
+<td>8</td>
+<td>Nigeria</td>
+<td>Africa</td>
+<td>Northern Hemisphere</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3276</td>
+<td>DPU9968</td>
+<td>86</td>
+<td>Male</td>
+<td>120</td>
+<td>90/87</td>
+<td>42</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>...</td>
+<td>8.145853</td>
+<td>109488</td>
+<td>18.463381</td>
+<td>46</td>
+<td>6</td>
+<td>10</td>
+<td>New Zealand</td>
+<td>Australia</td>
+<td>Southern Hemisphere</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>1555 rows × 26 columns</p>
+</div>
+</div>
+</div>
+<p><strong>6.) Intervalos de confianza del 98% para la proporcion de mujeres que tienen riesgo de ataque al corazon</strong></p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>HEART_ATTACK_RISK_MUESTRA <span class="op">=</span> dfMuestra[dfMuestra[<span class="st">'Heart Attack Risk'</span>] <span class="op">==</span> <span class="dv">1</span>] <span class="co">#? Filtrar dataset para las personas que tienen riesgo de ataque al corazon de la muestra</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>n_HEART_ATTACK_RISK_MUESTRA <span class="op">=</span> HEART_ATTACK_RISK_MUESTRA.shape[<span class="dv">0</span>] <span class="co">#? Tamaño de muestra de las personas que tienen riesgo de ataque al corazon</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>FEMALE_ATTACK_RISK_MUESTRA <span class="op">=</span> HEART_ATTACK_RISK_MUESTRA[HEART_ATTACK_RISK_MUESTRA[<span class="st">'Sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>] <span class="co">#? Filtrar a las mujeres tienen riesgo de ataque al corazon</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>P_FEMALE_ATTACK_RISK_MUESTRA <span class="op">=</span> FEMALE_ATTACK_RISK_MUESTRA[<span class="st">'Sex'</span>].count()<span class="op">/</span>HEART_ATTACK_RISK_MUESTRA[<span class="st">'Sex'</span>].count() <span class="co">#? proporcion de mujeres tienen riesgo de ataque al corazon</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>I_C_98 <span class="op">=</span> <span class="fl">0.98</span> <span class="co">#? Intervalo de confiannza</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>ALPHA_MEDIOS_98 <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>I_C_98)<span class="op">/</span><span class="dv">2</span> <span class="co">#? Nivel de significacion</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>Z_ALPHA_MEDIOS_98 <span class="op">=</span> scipy.stats.norm.isf(ALPHA_MEDIOS_98) <span class="co">#? Z alpha medios cola derecha</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>ERROR_PROP <span class="op">=</span> Z_ALPHA_MEDIOS_98<span class="op">*</span>(sqrt((P_FEMALE_ATTACK_RISK_MUESTRA<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>P_FEMALE_ATTACK_RISK_MUESTRA))<span class="op">/</span>n_HEART_ATTACK_RISK_MUESTRA)) <span class="co">#? Error de la proporcion</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>LIMITE_INFERIOR_1 <span class="op">=</span> P_FEMALE_ATTACK_RISK_MUESTRA <span class="op">-</span> ERROR_PROP</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>LIMITE_SUPERIOR_1 <span class="op">=</span> P_FEMALE_ATTACK_RISK_MUESTRA <span class="op">+</span> ERROR_PROP</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I.C 98%(</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">)"</span>.<span class="bu">format</span>(LIMITE_INFERIOR_1,LIMITE_SUPERIOR_1))</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st"> Se puede asegurar con un </span><span class="sc">{}% d</span><span class="st">e certeza que la proporcion poblacional de</span><span class="ch">\n</span><span class="st"> mujeres que tienen riesgo de un ataque al corazon esta entre"</span>.<span class="bu">format</span>(I_C_98<span class="op">*</span><span class="dv">100</span>), LIMITE_INFERIOR_1<span class="op">*</span><span class="dv">100</span>,<span class="st">'%'</span>, <span class="st">"y"</span>, LIMITE_SUPERIOR_1<span class="op">*</span><span class="dv">100</span>,<span class="st">'%'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I.C 98%(0.27229052655716096, 0.36507211080547636)
+
+ Se puede asegurar con un 98.0% de certeza que la proporcion poblacional de
+ mujeres que tienen riesgo de un ataque al corazon esta entre 27.229052655716096 % y 36.507211080547634 %</code></pre>
+</div>
+</div>
+<p><strong>7.) Intervalos de confianza del 95% para el promedio de edades de las personas que tienen riesgo de ataque al corazon</strong></p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>MEDIA_EDADES_HEART_RISK <span class="op">=</span> HEART_ATTACK_RISK_MUESTRA[<span class="st">'Age'</span>].mean() <span class="co">#? Media de las edades de las personas con riesgo de ataque al corazon</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>DESV_TIPICA_EDADES <span class="op">=</span> HEART_ATTACK_RISK_MUESTRA[<span class="st">'Age'</span>].std() <span class="co">#? Desviacion tipica de las edades de las personas con riesgo de ataque al corazon</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>I_C_95 <span class="op">=</span> <span class="fl">0.95</span> <span class="co">#? Intervalo de confiannza</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>ALPHA_MEDIOS_95 <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>I_C_95)<span class="op">/</span><span class="dv">2</span> <span class="co">#? Nivel de significacion</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>Z_ALPHA_MEDIOS_95 <span class="op">=</span> scipy.stats.norm.isf(ALPHA_MEDIOS_95) <span class="co">#? Z alpha medios cola derecha</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ERROR_MEDIA <span class="op">=</span> Z_ALPHA_MEDIOS_95<span class="op">*</span>(DESV_TIPICA_EDADES<span class="op">/</span>sqrt(n_HEART_ATTACK_RISK_MUESTRA)) <span class="co">#? Error de la media</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>LIMITE_INFERIOR_2 <span class="op">=</span> MEDIA_EDADES_HEART_RISK <span class="op">-</span> ERROR_MEDIA</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>LIMITE_SUPERIOR_2 <span class="op">=</span> MEDIA_EDADES_HEART_RISK <span class="op">+</span> ERROR_MEDIA</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I.C 95%(</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">)"</span>.<span class="bu">format</span>(LIMITE_INFERIOR_2,LIMITE_SUPERIOR_2))</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st"> Se puede asegurar con un </span><span class="sc">{}% d</span><span class="st">e certeza que la media poblacional de las</span><span class="ch">\n</span><span class="st"> edades de las personas con riesgo de ataque al corazon esta entre"</span>.<span class="bu">format</span>(I_C_95<span class="op">*</span><span class="dv">100</span>), LIMITE_INFERIOR_2, <span class="st">"y"</span>, LIMITE_SUPERIOR_2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I.C 95%(51.266297026808466, 54.8033000427886)
+
+ Se puede asegurar con un 95.0% de certeza que la media poblacional de las
+ edades de las personas con riesgo de ataque al corazon esta entre 51.266297026808466 y 54.8033000427886</code></pre>
+</div>
+</div>
+<p><strong>8.) Intervalo de confianza del 95% para la media del nivel de colesterol de las personas que tienen riesgo de ataque al corazon</strong></p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n_HEART_ATTACK_RISK_MUESTRA = HEART_ATTACK_RISK_MUESTRA.shape[0] #? Tamaño de muestra de las personas que tienen riesgo de ataque al corazon</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>MEDIA_COLESTEROL_HEART_RISK <span class="op">=</span> HEART_ATTACK_RISK_MUESTRA[<span class="st">'Cholesterol'</span>].mean() <span class="co">#? Media de colesterol de las personas con riesgo de ataque al corazon</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>DESV_TIPICA_COLESTEROl_HEART_RISK <span class="op">=</span> HEART_ATTACK_RISK_MUESTRA[<span class="st">'Cholesterol'</span>].std() <span class="co">#? Desviacion Tipica del colesterol de las personas con riesgo de ataque al corazon</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># I_C_95 = 0.95 #? Intervalo de confiannza</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ALPHA_MEDIOS_95 = (1-I_C_95)/2 #? Nivel de significacion</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>Z_ALPHA_MEDIOS_95 <span class="op">=</span> scipy.stats.norm.isf(ALPHA_MEDIOS_95) <span class="co">#? Z alpha medios cola derecha</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>ERROR_MEDIA_1 <span class="op">=</span> Z_ALPHA_MEDIOS_95<span class="op">*</span>(DESV_TIPICA_COLESTEROl_HEART_RISK<span class="op">/</span>sqrt(n_HEART_ATTACK_RISK_MUESTRA)) <span class="co">#? Error de la media colesterol</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>LIMITE_INFERIOR_3 <span class="op">=</span> MEDIA_COLESTEROL_HEART_RISK <span class="op">-</span> ERROR_MEDIA_1</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>LIMITE_SUPERIOR_3 <span class="op">=</span> MEDIA_COLESTEROL_HEART_RISK <span class="op">+</span> ERROR_MEDIA_1</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"I.C 95%(</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">)"</span>.<span class="bu">format</span>(LIMITE_INFERIOR_3,LIMITE_SUPERIOR_3))</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st"> Se puede asegurar con un </span><span class="sc">{}% d</span><span class="st">e certeza que la media poblacional del</span><span class="ch">\n</span><span class="st"> colesterol de las personas con riesgo de ataque al corazon esta entre"</span>.<span class="bu">format</span>(I_C_95<span class="op">*</span><span class="dv">100</span>), LIMITE_INFERIOR_3, <span class="st">"y"</span>, LIMITE_SUPERIOR_3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I.C 95%(262.30442698517555, 275.6039979232493)
+
+ Se puede asegurar con un 95.0% de certeza que la media poblacional del
+ colesterol de las personas con riesgo de ataque al corazon esta entre 262.30442698517555 y 275.6039979232493</code></pre>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

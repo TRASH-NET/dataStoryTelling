@@ -1,0 +1,197 @@
+---
+title: "Informe N°2 Data Story Telling"
+institute: "Universidad Tecnologica de Bolivar"
+subtitle: "Estadistica Inferencial - NRC: 1451"
+author:
+  - name: Emmanuel Silva Diaz - T00055599
+  - name: Maryuris Serpa - T00064505
+  - name: Lida del Valle - T0060224
+date: "10/01/2023"   
+date-format: long
+format:
+  html:
+    number-sections: true
+    lang: "es"
+jupyter: python3
+---
+
+```{python}
+import pandas as pd
+```
+
+**1.) Importar Dataset**
+
+**Dataset extraido de https://www.kaggle.com/datasets/iamsouravbanerjee/heart-attack-prediction-dataset**
+
+Este dataset consta de 8763 registros de pacientes de todo el mundo donde se proporciona una amplia variedad de características relevantes para la salud del corazón y las elecciones de estilo de vida, que abarcan detalles específicos del paciente como la edad, el género, los niveles de colesterol, la presión arterial, la frecuencia cardíaca y los indicadores como la diabetes, antecedentes familiares, hábitos de tabaquismo, obesidad y consumo de alcohol. Culmina en una característica de clasificación binaria crucial que denota la presencia o ausencia de un riesgo de ataque cardíaco, proporcionando un recurso integral para el análisis predictivo e investigación en salud cardiovascular.
+
+```{python}
+df = pd.read_csv('../data/data.csv', sep=",");
+
+df
+```
+
+**2.) Descripcion del dataset**
+
+```{python}
+print('\n\n --------------------------')
+print('\n\n')
+print(df.info())
+
+print('\n\n --------------------------')
+```
+
+```{python}
+
+# ? Tipos de variables y pruebas de normalidd
+
+variables = pd.DataFrame({'Variable': ['Patient ID', 'Age', 'Sex', 'Cholesterol', 'Blood Pressure', 'Heart Rate', 'Diabetes', 'Family History', 'Smoking', 'Obesity', 'Alcohol Consumption', 'Exercise Hours Per Week', 'Diet', 'Previous Heart Problems', 'Medication Use', 'Stress Level', 'Sedentary Hours Per Day', 'Income', 'BMI', 'Triglycerides', 'Physical Activity Days Per Week', 'Sleep Hours Per Day', 'Country', 'Continent', 'Hemisphere', 'Heart Attack Risk'],
+              'CUALITATIVA': ['1', '0', '1', '0', '0', '0', '1', '1', '1', '1', '1', '0', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1'],
+              'CUANTITATIVA': ['0', '1', '0', '1', '1', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0'],
+              'TIPO DE DATO': ['String', 'Int', 'String', 'Int', 'String', 'Int', 'Int', 'Int', 'Int', 'Int', 'Int', 'Float', 'String', 'Int', 'Int', 'Int', 'Float', 'Int', 'Float', 'Int', 'Int', 'Int', 'String', 'String', 'String', 'Int']})
+
+print(variables.to_string())
+```
+
+```{python}
+df.describe()
+```
+
+**3.) Limpieza del dataset**
+
+```{python}
+import numpy as np
+
+#* Datos faltantes 
+
+#? Convertir valores no numéricos en NaN para todas las columnas
+dfClear= df.replace('', value=np.nan)
+
+#? Contar valores nulos por columna y convertir el resultado en un diccionario
+datosFaltantes= dfClear.isnull().sum().to_dict()
+
+#? Se crea un nuevo dataset en excel luego de hacer la limpieza
+# dfClear.to_excel('DataClear.xlsx', index=False)
+
+print(datosFaltantes)
+```
+
+**4.) Calculo del tamaño de muestra**
+
+Determinar un tamaño de muestra 𝑛 representativo para el estudio. observaciones si cuentan
+con una variable que se distribuye de forma normal usar tamaño de muestra para la media
+teniendo en cuenta esa variable, en otro case usar tamaño de muestra para proporciones.
+
+```{python}
+
+#* PERSONAS QUE TIENEN RIESGO DE ATAQUE AL CORAZON
+HEART_ATTACK_RISK = dfClear[dfClear['Heart Attack Risk'] == 1] #? Dataset filtrado para aquellos que tienen riesgo de ataque al corazon
+
+
+HEART_ATTACK_RISK
+```
+
+```{python}
+
+#* PERSONAS QUE NO TIENEN RIESGO DE ATAQUE AL CORAZON
+NO_HEART_ATTACK_RISK = dfClear[dfClear['Heart Attack Risk'] == 0] #? Dataset filtrado para aquellos que no tienen riesgo de ataque al corazon
+
+
+NO_HEART_ATTACK_RISK
+```
+
+```{python}
+
+#? Proporcion de la cantidad de personas que tienen riesgo de ataque al corazon.
+
+P_HEART_ATTACK_RISK= HEART_ATTACK_RISK['Patient ID'].count()/dfClear['Patient ID'].count()
+
+print("¡ El ",(P_HEART_ATTACK_RISK*100).__round__(3),'% de las personas tienen riesgo de ataque al corazon !')
+print("¡ El ",((1-P_HEART_ATTACK_RISK)*100).__round__(3),'% de las personas no tienen riesgo de ataque al corazon !')
+```
+
+```{python}
+import scipy.stats 
+
+#? Calculo de tamaño de muestra para proporciones -> n = (z^2 * p * (1-p)) / (E^2)
+ 
+#* P_HEART_ATTACK_RISK_SMOKING -> Proporcion
+ALPHA_MEDIOS_95 = 0.05 #* -> Nivel de significancia
+ERROR = 0.02
+Z_ALPHA_MEDIOS_95 = scipy.stats.norm.isf(ALPHA_MEDIOS_95)
+
+Z_ALPHA_MEDIOS_95
+n = (((Z_ALPHA_MEDIOS_95**2)*(P_HEART_ATTACK_RISK)*(1-P_HEART_ATTACK_RISK))/(ERROR**2)).round().__int__()
+
+print("El tamaño de muestra es:", n )
+```
+
+**5.) Obtenemos una muestra aleatoria**
+
+```{python}
+seed = 55599 #? Semilla 
+sample = n
+
+dfMuestra = dfClear.sample(n=sample, random_state=seed)
+
+# TODO -> dfMuestra.to_excel('muestra1500.xlsx', index=False) #* -> Se crea un archivo de excel con la muestra de 1555
+
+dfMuestra
+```
+
+**6.) Intervalos de confianza del 98% para la proporcion de mujeres que tienen riesgo de ataque al corazon**
+
+```{python}
+from math import sqrt
+
+
+HEART_ATTACK_RISK_MUESTRA = dfMuestra[dfMuestra['Heart Attack Risk'] == 1] #? Filtrar dataset para las personas que tienen riesgo de ataque al corazon de la muestra
+n_HEART_ATTACK_RISK_MUESTRA = HEART_ATTACK_RISK_MUESTRA.shape[0] #? Tamaño de muestra de las personas que tienen riesgo de ataque al corazon
+FEMALE_ATTACK_RISK_MUESTRA = HEART_ATTACK_RISK_MUESTRA[HEART_ATTACK_RISK_MUESTRA['Sex'] == 'Female'] #? Filtrar a las mujeres tienen riesgo de ataque al corazon
+P_FEMALE_ATTACK_RISK_MUESTRA = FEMALE_ATTACK_RISK_MUESTRA['Sex'].count()/HEART_ATTACK_RISK_MUESTRA['Sex'].count() #? proporcion de mujeres tienen riesgo de ataque al corazon
+I_C_98 = 0.98 #? Intervalo de confiannza
+ALPHA_MEDIOS_98 = (1-I_C_98)/2 #? Nivel de significacion
+Z_ALPHA_MEDIOS_98 = scipy.stats.norm.isf(ALPHA_MEDIOS_98) #? Z alpha medios cola derecha
+ERROR_PROP = Z_ALPHA_MEDIOS_98*(sqrt((P_FEMALE_ATTACK_RISK_MUESTRA*(1-P_FEMALE_ATTACK_RISK_MUESTRA))/n_HEART_ATTACK_RISK_MUESTRA)) #? Error de la proporcion
+
+LIMITE_INFERIOR_1 = P_FEMALE_ATTACK_RISK_MUESTRA - ERROR_PROP
+LIMITE_SUPERIOR_1 = P_FEMALE_ATTACK_RISK_MUESTRA + ERROR_PROP
+
+print("I.C 98%({}, {})".format(LIMITE_INFERIOR_1,LIMITE_SUPERIOR_1))
+print("\n Se puede asegurar con un {}% de certeza que la proporcion poblacional de\n mujeres que tienen riesgo de un ataque al corazon esta entre".format(I_C_98*100), LIMITE_INFERIOR_1*100,'%', "y", LIMITE_SUPERIOR_1*100,'%')
+```
+
+**7.) Intervalos de confianza del 95% para el promedio de edades de las personas que tienen riesgo de ataque al corazon**
+
+```{python}
+MEDIA_EDADES_HEART_RISK = HEART_ATTACK_RISK_MUESTRA['Age'].mean() #? Media de las edades de las personas con riesgo de ataque al corazon
+DESV_TIPICA_EDADES = HEART_ATTACK_RISK_MUESTRA['Age'].std() #? Desviacion tipica de las edades de las personas con riesgo de ataque al corazon
+I_C_95 = 0.95 #? Intervalo de confiannza
+ALPHA_MEDIOS_95 = (1-I_C_95)/2 #? Nivel de significacion
+Z_ALPHA_MEDIOS_95 = scipy.stats.norm.isf(ALPHA_MEDIOS_95) #? Z alpha medios cola derecha
+ERROR_MEDIA = Z_ALPHA_MEDIOS_95*(DESV_TIPICA_EDADES/sqrt(n_HEART_ATTACK_RISK_MUESTRA)) #? Error de la media
+
+LIMITE_INFERIOR_2 = MEDIA_EDADES_HEART_RISK - ERROR_MEDIA
+LIMITE_SUPERIOR_2 = MEDIA_EDADES_HEART_RISK + ERROR_MEDIA
+print("I.C 95%({}, {})".format(LIMITE_INFERIOR_2,LIMITE_SUPERIOR_2))
+print("\n Se puede asegurar con un {}% de certeza que la media poblacional de las\n edades de las personas con riesgo de ataque al corazon esta entre".format(I_C_95*100), LIMITE_INFERIOR_2, "y", LIMITE_SUPERIOR_2)
+```
+
+**8.) Intervalo de confianza del 95% para la media del nivel de colesterol de las personas que tienen riesgo de ataque al corazon**
+
+```{python}
+# n_HEART_ATTACK_RISK_MUESTRA = HEART_ATTACK_RISK_MUESTRA.shape[0] #? Tamaño de muestra de las personas que tienen riesgo de ataque al corazon
+MEDIA_COLESTEROL_HEART_RISK = HEART_ATTACK_RISK_MUESTRA['Cholesterol'].mean() #? Media de colesterol de las personas con riesgo de ataque al corazon
+DESV_TIPICA_COLESTEROl_HEART_RISK = HEART_ATTACK_RISK_MUESTRA['Cholesterol'].std() #? Desviacion Tipica del colesterol de las personas con riesgo de ataque al corazon
+# I_C_95 = 0.95 #? Intervalo de confiannza
+# ALPHA_MEDIOS_95 = (1-I_C_95)/2 #? Nivel de significacion
+Z_ALPHA_MEDIOS_95 = scipy.stats.norm.isf(ALPHA_MEDIOS_95) #? Z alpha medios cola derecha
+ERROR_MEDIA_1 = Z_ALPHA_MEDIOS_95*(DESV_TIPICA_COLESTEROl_HEART_RISK/sqrt(n_HEART_ATTACK_RISK_MUESTRA)) #? Error de la media colesterol
+
+
+LIMITE_INFERIOR_3 = MEDIA_COLESTEROL_HEART_RISK - ERROR_MEDIA_1
+LIMITE_SUPERIOR_3 = MEDIA_COLESTEROL_HEART_RISK + ERROR_MEDIA_1
+print("I.C 95%({}, {})".format(LIMITE_INFERIOR_3,LIMITE_SUPERIOR_3))
+print("\n Se puede asegurar con un {}% de certeza que la media poblacional del\n colesterol de las personas con riesgo de ataque al corazon esta entre".format(I_C_95*100), LIMITE_INFERIOR_3, "y", LIMITE_SUPERIOR_3)
+```
+
