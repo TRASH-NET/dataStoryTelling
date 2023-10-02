@@ -1,4 +1,4 @@
-Enlace a github: https://github.com/TRASH-NET/dashboard_DST.git
+Enlace a github para dashboard: https://github.com/TRASH-NET/dashboard_DST.git
 
 Requirements: 
 
@@ -8,3 +8,6 @@ pip install seaborn
 script para correr el programa: 
 
 streamlit run dashboard.py
+
+
+Enlace a github para codigo fuente qmd para el punto 5: 
